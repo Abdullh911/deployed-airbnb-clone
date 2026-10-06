@@ -1,0 +1,16 @@
+.typeC{
+    @apply w-full h-10 mt-4  bg-white 
+}
+.swiperType .swiper-button-prev,
+.swiperType .swiper-button-next {
+    @apply bg-white  text-black rounded-full hidden md:flex items-center justify-center w-7 h-7 opacity-80;
+}
+.swiperType .swiper-button-prev:hover,
+.swiperType .swiper-button-next:hover {
+    @apply bg-gray-100 opacity-100; 
+}
+
+.swiperType .swiper-button-prev::after,
+.swiperType .swiper-button-next::after {
+    @apply text-[8px] font-bold ; 
+}

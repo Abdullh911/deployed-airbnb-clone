@@ -1,0 +1,12 @@
+.reservationPageCont{
+    @apply  md:flex-row md:justify-between flex flex-col-reverse
+}
+.roomData{
+    @apply flex gap-5 border-b-2 pb-5 mb-5
+}
+.roomData img{
+    @apply w-32 h-auto rounded-xl
+}
+.reservationPage{
+    @apply relative top-36 px-[10%]
+}

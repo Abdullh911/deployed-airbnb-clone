@@ -1,0 +1,9 @@
+.userMenu{
+    @apply py-2 absolute  mt-2 rounded-xl z-[1000] shadow-2xl  w-[250px]  bg-white h-max flex flex-col gap-3 font-[Poppins]
+}
+.menuOptn{
+    @apply py-2 px-4 text-[14.5px] hover:bg-gray-100 cursor-pointer
+}
+.dummies{
+    @apply border-t-[1px]
+}

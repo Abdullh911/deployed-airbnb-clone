@@ -1,0 +1,3 @@
+.lModal{
+    @apply z-50  absolute w-[100%] md:w-[60%] h-[70%] bg-white rounded-2xl
+}

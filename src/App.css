@@ -1,0 +1,9 @@
+html, body {
+    @apply w-full h-full; 
+    margin: 0; 
+    padding: 0; 
+}
+
+#root {
+    @apply w-full h-full min-h-screen;
+}

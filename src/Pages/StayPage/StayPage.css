@@ -1,0 +1,73 @@
+.stayAll{
+    @apply pl-[8%] pr-[5%] lg:pl-[13%] lg:pr-[10%] w-full flex justify-center relative top-20 md:top-24
+}
+.stayBody{
+    @apply w-full font-[Poppins]
+}
+.imgs{
+    @apply w-full md:flex h-[360px] gap-2 relative hidden
+}
+.soloImg img{
+    @apply h-full w-full object-cover rounded-l-xl
+}
+.soloImg{
+    @apply w-[48%]
+}
+.grpImgs{
+    @apply w-[48%] h-full flex flex-wrap gap-[7px]
+}
+
+.grpImgs img{
+    @apply  h-[49%] w-[48%]
+}
+.showAllPics{
+    @apply text-[50%] bg-white flex justify-center items-center p-2 px-5 gap-2 bottom-6 cursor-pointer hover:bg-gray-50 right-[7%] border-[1px] border-black absolute rounded-lg font-semibold
+}
+.showAllPics i,.showAllPics p{
+    @apply text-[1.5em]
+}
+.stayDetails{
+    @apply mt-7
+}
+.description{
+    @apply md:w-[56%] w-full mb-7
+}
+.guestFavoriteHome{
+    @apply mb-7 rounded-lg border-[1px] p-2 px-5 flex justify-between items-center
+}
+.rome{
+    @apply w-[136px]
+}
+.host{
+    @apply flex gap-5 border-b-[1px] pb-5 mb-7
+}
+.hostDes{
+    @apply w-full border-t-[1px] pt-10
+}
+.fullVote{
+    @apply flex justify-center
+}
+.fullVote img{
+    @apply w-20 h-auto relative top-4
+}
+.voteSec{
+    @apply  flex flex-col items-center w-full
+}
+.breakVote{
+    @apply border-b-[1px] pb-7  mb-7 hidden md:flex justify-between w-full mt-20
+}
+.votePoint{
+    @apply w-[13%] p-3 h-32 flex flex-col justify-between
+}
+.votePoint{
+    @apply break-words
+}
+.votePoint:not(:last-child) {
+    @apply border-r-[1px];
+}
+.votePoint p:nth-child(2){
+    @apply text-[20px] font-semibold
+}
+.votePoint i{
+    @apply text-[30px]
+}

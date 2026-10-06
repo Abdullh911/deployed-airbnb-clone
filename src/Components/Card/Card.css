@@ -1,0 +1,31 @@
+.card:hover .swiper-button-prev{
+    @apply flex
+}
+.card:hover .swiper-button-next{
+    @apply flex
+}
+
+.swiperCard .swiper-button-prev,
+.swiperCard .swiper-button-next {
+    @apply bg-white z-20  text-black rounded-full hidden items-center justify-center w-7 h-7 opacity-80;
+}
+.swiperCard .swiper-button-prev:hover,
+.swiperCard .swiper-button-next:hover {
+    @apply bg-gray-100 opacity-100 z-20; 
+}
+
+.swiperCard .swiper-button-prev::after,
+.swiperCard .swiper-button-next::after {
+    @apply text-[8px] font-bold z-20 ; 
+}
+
+.swiperCard .swiper-pagination-bullet {
+    @apply bg-white w-[5px] h-[5px] z-20; 
+}
+
+.swiperCard .swiper-pagination-bullet-active {
+    @apply bg-white w-[5px] h-[5px]; 
+}
+.loadingCardContent{
+    @apply  bg-gray-200 text-transparent w-max rounded-lg text-[14px] mb-1
+}

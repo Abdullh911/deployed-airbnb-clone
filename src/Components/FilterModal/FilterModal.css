@@ -1,0 +1,59 @@
+.filterModal {
+    @apply  absolute w-[100%] md:w-[60%] lg:w-[46%] xl:w-[37%] h-[100%] md:h-[90%] bg-white z-[500] top-[6%]  left-[0%] lg:left-[32%] md:left-[20%] rounded-xl ;
+}
+
+.backdrop {
+    @apply fixed top-0 left-0 w-full h-full bg-black opacity-50 z-20;
+}
+.close{
+    @apply absolute top-6 left-6 cursor-pointer
+}
+.title{
+    @apply w-full flex justify-center items-center h-[65px] border-b-2
+}
+.body{
+    @apply max-h-[calc(85vh-80px)] overflow-y-scroll p-7 font-[Poppins]
+}
+
+.tabs{
+    @apply p-1 w-full flex justify-between border-2 rounded-2xl
+}
+.tabs button{
+    @apply py-2  px-2 md:px-6 md:text-[15px] hover:bg-gray-100 rounded-xl w-[33%] text-nowrap text-[12px]
+}
+.type{
+    @apply border-b-[2px] pb-7
+}
+.pricee{
+    @apply  mt-7  border-b-[2px] pb-7
+}
+.beds{
+    @apply flex flex-col gap-10 mt-7 border-b-[2px] pb-7
+}
+.amenties{
+    @apply mt-7 border-b-[2px] pb-7
+}
+.amenitiesCont{
+    @apply flex flex-wrap gap-3
+}
+.select{
+    @apply flex items-center  gap-1 p-3 rounded-full border-[1px] hover:border-black cursor-pointer
+}
+.showMore{
+    @apply mt-3 underline cursor-pointer
+}
+.bookingOpts{
+    @apply mt-7 border-b-[2px] pb-7
+}
+.guestFav{
+    @apply mt-7 border-b-[2px] pb-7
+}
+.guestFavorite{
+    @apply flex pl-5 items-center  gap-3 rounded-2xl border-[1px] hover:border-black cursor-pointer p-3
+}
+.footer{
+    @apply bg-white rounded-xl h-14 p-7 relative
+}
+.showBtnCont{
+    @apply w-[90%] h-full flex justify-between items-center absolute bottom-0
+}

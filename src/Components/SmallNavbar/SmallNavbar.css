@@ -1,0 +1,9 @@
+.small-navbar{
+    @apply fixed z-10 md:hidden shadow-xl h-[138px] bg-white w-full 
+}
+.filter{
+    @apply w-9 h-9 flex justify-center items-center rounded-full border-[1px] border-gray-300 mt-6
+}
+.navBody{
+    @apply flex justify-center items-center gap-2
+}

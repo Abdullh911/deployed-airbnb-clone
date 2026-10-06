@@ -1,0 +1,6 @@
+.typecard{
+    @apply -z-10 flex flex-col items-center justify-center w-12 h-12
+}
+.loadingType{
+    @apply  bg-gray-200 text-transparent w-max rounded-lg text-[11px]
+}

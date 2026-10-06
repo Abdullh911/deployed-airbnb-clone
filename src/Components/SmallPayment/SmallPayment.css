@@ -1,0 +1,6 @@
+.smallPay{
+    @apply flex fixed bottom-0 md:hidden z-10 bg-white h-32 w-full p-5 justify-between items-start
+}
+.price{
+    @apply w-1/2 m-0
+}

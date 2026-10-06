@@ -1,0 +1,6 @@
+.CardContainer{
+    @apply z-0  flex gap-[20px] flex-wrap justify-center  w-full p-6 relative top-32 md:top-64;
+}
+.fltrBtn{
+    @apply text-sm border-[1px] p-3 px-4 rounded-xl flex items-center gap-3 hover:border-black hover:bg-gray-100
+}

@@ -1,0 +1,22 @@
+.SmallSearch{
+    @apply relative bg-white shadow-sm rounded-full flex w-max justify-between h-11 items-center border-[0.1px] border-gray-300 cursor-pointer
+}
+.SmallSearch p{
+    @apply text-[12px]  text-nowrap
+}
+.SmallSearch div:nth-child(1),
+.SmallSearch div:nth-child(3),
+.SmallSearch div:nth-child(5)
+{
+    @apply p-4 rounded-full 
+}
+
+.searchBtnn{
+    @apply absolute  hover:bg-[#d22c4b] bg-[#ff385c] rounded-full w-[29px] h-[29px] flex justify-center items-center cursor-pointer z-10
+}
+.y{
+    @apply text-[11px]
+}
+.guest{
+    @apply font-normal
+}

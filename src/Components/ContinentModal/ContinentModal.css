@@ -1,0 +1,13 @@
+.contContainer{
+    @apply flex w-full flex-wrap justify-between
+}
+.contModal{
+    @apply transition-all duration-1000 font-[Poppins] rounded-3xl w-1/2 h-max bg-white pl-4 pr-6 py-3 absolute top-[75px]  shadow-2xl z-50
+}
+.contCard{
+    @apply w-[33%] p-2 hover:bg-gray-300 rounded-xl text-[13px] cursor-pointer
+}
+
+.contCard img{
+    @apply w-full rounded-xl border-[1px]
+}

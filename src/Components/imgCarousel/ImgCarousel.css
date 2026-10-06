@@ -1,0 +1,3 @@
+.carouselRoom{
+    @apply md:hidden h-72 w-full relative top-20 
+}

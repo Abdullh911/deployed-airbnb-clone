@@ -1,0 +1,19 @@
+.small-S{
+    @apply w-[75%] border-[1px] border-gray-300 h-6 flex items-center gap-4 shadow-lg rounded-full p-4 py-6 mt-6
+}
+.z{
+    @apply text-black text-[20px]
+}
+
+.searchHolder{
+    @apply flex w-full
+}
+.searchHolder p{
+    @apply text-[12px]
+}
+.uncomp{
+    @apply truncate  w-[26%] text-gray-500 font-semibold
+}
+.searchCont{
+    @apply flex flex-col w-full
+}

@@ -1,0 +1,39 @@
+.navbar{
+    @apply transition-all  duration-300  hidden fixed z-40  md:flex flex-col w-full max-h-[50%] gap-2 bg-white;
+}
+.navP1{
+    @apply flex justify-around items-center xl:gap-[17%] mt-[13px]
+}
+.logo{
+    @apply flex items-center gap-1 cursor-pointer;
+}
+.logoText{
+    @apply font-[Poppins] font-extrabold md:opacity-0 xl:opacity-100 text-[#ff385c] text-[22px] 
+}
+#logoPic{
+    @apply text-[#ff385c] text-[32px]
+}
+.user{
+    @apply flex items-center gap-4
+}
+.userOptn{
+    @apply relative rounded-full  border-gray-300 border-[1px] cursor-pointer flex gap-3 px-3 p-2 items-center hover:shadow-lg transition-shadow
+}
+.userIcon{
+
+}
+.btnStays{
+    @apply flex  justify-center items-center sm:hidden md:flex w-[25%]
+}
+.st{
+    @apply rounded-full hover:bg-gray-100 px-4 py-2 text-gray-500
+}
+.navP2{
+    @apply flex flex-col items-center 
+}
+.profilePic{
+    @apply w-7 h-7 rounded-full bg-black text-white flex justify-center items-center
+}
+.loadingNormal{
+    @apply  bg-gray-200 text-transparent w-max rounded-lg mb-2
+}

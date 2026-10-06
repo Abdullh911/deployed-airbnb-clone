@@ -1,0 +1,27 @@
+.logBody{
+    @apply p-7 font-[Poppins] overflow-y-scroll h-[70%] md:h-[89%]
+}
+.inputCont{
+    @apply flex flex-col gap-0
+}
+.inputCont input{
+    @apply w-full h-14 border-[1px] border-gray-400 p-3
+}
+.logBody button{
+    @apply w-full h-12 bg-[#ff385c] rounded-lg text-white mb-7
+}
+.divide{
+    @apply border-[1px] h-[0.5px] w-full flex justify-center
+}
+.or{
+    @apply absolute -translate-y-[10px] bg-white px-7 h-12 text-[13px]
+}
+.socialDiv{
+    @apply relative flex justify-center items-center p-3 w-full border-[1px] border-black mb-1 md:mb-4 cursor-pointer hover:bg-gray-100 rounded-xl 
+}
+.socialDiv i{
+    @apply absolute left-4
+}
+.filterModal {
+    @apply   absolute w-[100%] md:w-[60%] lg:w-[46%] xl:w-[37%] h-[100%] md:h-[90%] bg-white z-50 top-[5%] left-[0%] lg:left-[32%] md:left-[20%] rounded-xl ;
+}

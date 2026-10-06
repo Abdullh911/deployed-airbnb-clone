@@ -1,0 +1,39 @@
+.largeSearchCont{
+    @apply z-[500] rounded-full  shadow-md relative  border-[1px] h-[63px] mb-12 mt-2 md:w-[90%] lg:w-[65%] xl:w-[56%]
+}
+.searchcrit{
+    @apply hover:bg-gray-200 hover:rounded-full text-nowrap h-full
+}
+.searchTxtp{
+    @apply text-gray-500 text-[13px] font-[500];
+}
+.searchTxth{
+    @apply text-[12px] font-semibold text-gray-700
+}
+.loading{
+    @apply text-[12px] bg-gray-200 text-transparent w-max rounded-lg mb-2
+}
+
+.largeSearchCont > div:nth-child(1){
+    @apply pl-8 p-3 w-[35%] 
+}
+.largeSearchCont > div:nth-child(3),
+.largeSearchCont > div:nth-child(5)
+{
+    @apply p-3 w-[15%] pl-5
+}
+.largeSearchCont > div:nth-child(7){
+    @apply p-3 w-[35%] pl-6
+}
+.fa-magnifying-glass{
+    @apply text-white
+}
+.searchBtnCont{
+    @apply flex items-center justify-between
+}
+.searchBtn{
+    @apply hover:bg-[#d22c4b] bg-[#ff385c] rounded-full w-11 h-11 flex justify-center items-center cursor-pointer z-10 absolute 
+}
+
+
+

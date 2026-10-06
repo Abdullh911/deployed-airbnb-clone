@@ -1,0 +1,6 @@
+.accPage{
+    @apply top-32 relative px-[15.5%] font-[Poppins] pt-[20px] w-full pb-20;
+}
+.accCardsCont{
+    @apply flex w-full flex-wrap gap-4
+}

@@ -1,0 +1,21 @@
+.modalBody{
+    @apply font-[Poppins] w-full h-full bg-[#f7f7f7] fixed z-20 
+}
+.searchFooter{
+    @apply absolute bottom-0 w-full h-[68px] bg-white border-t-2 flex justify-between items-center px-5
+}
+.searchmodalContent{
+    @apply p-3 flex flex-col gap-[6px] relative top-12 h-[80%]  overflow-y-scroll
+}
+.exitStayExp{
+    @apply flex gap-8 items-center text-[16px] w-full absolute top-4 left-5
+}
+.regionContainer{
+    @apply flex flex-wrap justify-between overflow-y-scroll h-[60%]
+}
+.regionCard{
+    @apply w-[48%] p-2 hover:bg-gray-300 rounded-xl text-[13px] cursor-pointer
+}
+.extendedDest{
+    @apply bg-white rounded-3xl shadow-2xl h-[330px] pl-5 pt-5
+}
