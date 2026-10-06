@@ -20,6 +20,7 @@ import homesAr from "../../Components/mockDataAr";
 import { getDocumentById } from "../../Components/dataFetch";
 import Loader from "../../Components/Loader";
 import MapComponent from "../../Components/Map";
+import { imageSrcSet, imageWithWidth } from "../../Components/imageUtils";
 
 const StayPage = () => {
     let {id}=useParams();
@@ -75,13 +76,28 @@ const StayPage = () => {
                 
                 <div className="imgs">
                     <div className="soloImg">
-                        <img src={data.pictures[0]} alt="" />
+                        <img
+                            src={imageWithWidth(data.pictures[0], 960)}
+                            srcSet={imageSrcSet(data.pictures[0], [720, 960, 1200])}
+                            sizes="50vw"
+                            fetchPriority="high"
+                            decoding="async"
+                            alt={data.title || data.cityCountry || "Home listing"}
+                        />
                     </div>
                     <div className="grpImgs">
-                        <img src={data.pictures[1]} alt="" />
-                        <img className="rounded-tr-xl" src={data.pictures[2]} alt="" />
-                        <img src={data.pictures[3]} alt="" />
-                        <img className="rounded-br-xl" src={data.pictures[4]} alt="" />
+                        {data.pictures.slice(1, 5).map((image, index) => (
+                            <img
+                                key={image}
+                                className={index === 1 ? "rounded-tr-xl" : index === 3 ? "rounded-br-xl" : ""}
+                                src={imageWithWidth(image, 480)}
+                                srcSet={imageSrcSet(image, [320, 480, 720])}
+                                sizes="25vw"
+                                loading="lazy"
+                                decoding="async"
+                                alt={data.title || data.cityCountry || "Home listing"}
+                            />
+                        ))}
                     </div>
                     <div className="showAllPics">
                         <i class="fa-solid fa-table-cells"></i>

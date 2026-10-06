@@ -46,8 +46,8 @@ const CardContainer = () => {
             
             
             <div className="CardContainer">
-                {filtered.map(home => (
-                    <Card key={home.id} home={home} />
+                {filtered.map((home, index) => (
+                    <Card key={home.id} home={home} priority={index < 4} />
                 ))}
             </div>
             <Footer/>

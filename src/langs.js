@@ -1,3 +1,5 @@
+import extraLanguages from "../langs.js";
+
 const langs = {
   en: {
     Account: "Account",
@@ -36,6 +38,7 @@ const langs = {
     adults: "Adults",
     children: "Children",
     infants: "Infants",
+    pet: "Pet",
     petsAllowed: "Pets allowed",
     addDate: "Add dates",
     checkIn: "Check in",
@@ -296,5 +299,20 @@ const langs = {
     messages: "الرسائل",
   },
 };
+
+langs.ar.pet = langs.ar.pet || "حيوان أليف";
+
+function withEnglishFallback(translations = {}) {
+  return {
+    ...langs.en,
+    ...translations,
+    check_in: translations.check_in || translations["check-in"] || langs.en.check_in,
+    chooseLangRegion: translations.chooseLangRegion || langs.en.chooseLangRegion,
+    pet: translations.pet || langs.en.pet,
+  };
+}
+
+langs.es = withEnglishFallback(extraLanguages.es);
+langs.fr = withEnglishFallback(extraLanguages.fr);
 
 export default langs;

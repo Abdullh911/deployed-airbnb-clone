@@ -1,86 +1,63 @@
-import { auth, db } from "./firebase";
-import { setDoc, doc,getDoc,getDocs,collection  } from "firebase/firestore";
-export async function getAllHomes(lang) {
-    if(lang=='en'){
-        const docRef = doc(db, 'homes', '2');
-        try {
-            const docSnap = await getDoc(docRef);
-            if (docSnap.exists()) {
-                const documentData = docSnap.data(); 
-                const listingsData = documentData.data; 
-                console.log("Fetched listings data:", listingsData);
-                return listingsData;
-            } else {
-                console.log("No such document!");
-                return null;
-            }
-        } catch (error) {
-            console.error("Error fetching document:", error);
-            throw error;
-        }
+import { db } from "./firebase";
+import { doc, getDoc } from "firebase/firestore";
+
+const TEXT_FIELDS = ["destination", "category", "title", "city", "country", "type"];
+
+async function getHomesDocument(collectionName, documentId) {
+    const docRef = doc(db, collectionName, documentId);
+    const docSnap = await getDoc(docRef);
+
+    if (!docSnap.exists()) {
+        console.log("No such document!");
+        return [];
     }
-    else{
-        const docRef = doc(db, 'homesArr', '1');
-        try {
-            const docSnap = await getDoc(docRef);
-            if (docSnap.exists()) {
-                const documentData = docSnap.data(); 
-                const listingsData = documentData.data; 
-                console.log("Fetched listings data:", listingsData);
-                return listingsData;
-            } else {
-                console.log("No such document!");
-                return null;
-            }
-        } catch (error) {
-            console.error("Error fetching document:", error);
-            throw error;
-        }
-    }    
+
+    return docSnap.data().data || [];
 }
+
+function withDisplayFields(home) {
+    return {
+        ...home,
+        cityCountry: home.cityCountry || [home.city, home.country].filter(Boolean).join(", "),
+    };
+}
+
+function mergeArabicText(englishHomes, arabicHomes) {
+    const arabicById = new Map(arabicHomes.map((home) => [String(home.id), home]));
+
+    return englishHomes.map((englishHome, index) => {
+        const arabicHome = arabicById.get(String(englishHome.id)) || arabicHomes[index] || {};
+        const mergedHome = { ...englishHome };
+
+        TEXT_FIELDS.forEach((field) => {
+            if (arabicHome[field]) {
+                mergedHome[field] = arabicHome[field];
+            }
+        });
+
+        return withDisplayFields(mergedHome);
+    });
+}
+
+export async function getAllHomes(lang) {
+    try {
+        const englishHomes = await getHomesDocument("homes", "2");
+
+        if (lang !== "ar") {
+            return englishHomes.map(withDisplayFields);
+        }
+
+        const arabicHomes = await getHomesDocument("homesArr", "1");
+        return mergeArabicText(englishHomes, arabicHomes);
+    } catch (error) {
+        console.error("Error fetching document:", error);
+        throw error;
+    }
+}
+
 export async function getDocumentById(collectionName, documentId) {
-    if(collectionName=='homes'){
-        const docRef = doc(db, 'homes', '2');
-        try {
-            const docSnap = await getDoc(docRef);
-            if (docSnap.exists()) {
-                const documentData = docSnap.data(); 
-                const listingsData = documentData.data;
-                for(let i=0;i<listingsData.length;i++){
-                    if(listingsData[i].id==documentId){
-                        return listingsData[i];
-                    }
-                }
-            } else {
-                console.log("No such document!");
-                return null;
-            }
-        } catch (error) {
-            console.error("Error fetching document:", error);
-            throw error;
-        }
-    }
-    else{
-        const docRef = doc(db, 'homesArr', '1');
-        try {
-            const docSnap = await getDoc(docRef);
-            if (docSnap.exists()) {
-                const documentData = docSnap.data(); 
-                const listingsData = documentData.data; 
-                for(let i=0;i<listingsData.length;i++){
-                    if(listingsData[i].id==documentId){
-                        console.log(listingsData[i]);
-                        
-                        return listingsData[i];
-                    }
-                }
-            } else {
-                console.log("No such document!");
-                return null;
-            }
-        } catch (error) {
-            console.error("Error fetching document:", error);
-            throw error;
-        }
-    }
+    const lang = collectionName === "homesArr" || collectionName === "homesAr" || collectionName === "ar" ? "ar" : "en";
+    const listingsData = await getAllHomes(lang);
+
+    return listingsData.find((home) => String(home.id) === String(documentId)) || null;
 }

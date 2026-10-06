@@ -14,8 +14,9 @@ import { useNavigate } from 'react-router-dom';
 import loading from '../../assets/Loading.png'
 import homesAr from '../mockDataAr';
 import { useRecoilValue } from 'recoil';
+import { imageSrcSet, imageWithWidth } from '../imageUtils';
 
-const Card = ({ home }) => {
+const Card = ({ home, priority = false }) => {
     const [isChecked, setIsChecked] = useRecoilState(checkboxState);
     const { replaceUser } = useRecoilValue(userFunctions);
     let [curr,setCurr]=useRecoilState(currUser);
@@ -27,7 +28,7 @@ const Card = ({ home }) => {
     let navigate=useNavigate();
     useEffect(()=>{
         setData(home);
-    },[english]);
+    },[english, home]);
     
     
     async function addFav() {
@@ -93,7 +94,15 @@ const Card = ({ home }) => {
                                     return
                                 }
                                 navigate(`/stay/${home.id}`);
-                            }} className=' h-full object-cover w-full rounded-lg' src={!showText?image:loading} alt="" />
+                            }}
+                            className=' h-full object-cover w-full rounded-lg'
+                            src={!showText ? imageWithWidth(image, 480) : loading}
+                            srcSet={!showText ? imageSrcSet(image, [320, 480, 720]) : undefined}
+                            sizes="(min-width: 1280px) 22vw, (min-width: 1024px) 31vw, (min-width: 768px) 48vw, (min-width: 640px) 40vw, 100vw"
+                            loading={priority && index === 0 ? "eager" : "lazy"}
+                            fetchPriority={priority && index === 0 ? "high" : "low"}
+                            decoding="async"
+                            alt={data.title || data.cityCountry || "Home listing"} />
                         </SwiperSlide>
                     ))}
                 </Swiper>

@@ -11,6 +11,7 @@ import { useRecoilState } from 'recoil';
 import { currUser, isEnglish, showSignup } from '../../StateMangement/State';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { imageSrcSet, imageWithWidth } from '../imageUtils';
 const ImgCarousel = ({images}) => {
     let [english,setEnglish]=useRecoilState(isEnglish);
     return ( 
@@ -32,7 +33,16 @@ const ImgCarousel = ({images}) => {
             >
                 {images.map((image, index) => (
                     <SwiperSlide key={index}>
-                        <img className='h-full object-fill w-full ' src={image} alt="" />
+                        <img
+                            className='h-full object-fill w-full '
+                            src={imageWithWidth(image, 720)}
+                            srcSet={imageSrcSet(image, [480, 720, 960])}
+                            sizes="100vw"
+                            loading={index === 0 ? "eager" : "lazy"}
+                            fetchPriority={index === 0 ? "high" : "low"}
+                            decoding="async"
+                            alt=""
+                        />
                     </SwiperSlide>
                 ))}
             </Swiper>
